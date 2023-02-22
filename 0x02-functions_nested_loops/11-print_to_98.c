@@ -1,8 +1,10 @@
 #include "main.h"
 #include "6-abs.c"
 #include <stdio.h>
-/*Helle Description
- * here */
+/**
+ * times_table - times table function
+ *
+ */
 void print_to_98(int n)
 {
 	int i;
