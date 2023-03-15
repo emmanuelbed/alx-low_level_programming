@@ -1,30 +1,43 @@
+#include "main.h"
 #include <stdlib.h>
-#include "holberton.h"
-
 /**
- * array_range - create array of integers
- * @min: start range from
- * @max: end range at
- * Return: pointer to array
+ * alloc_grid - nested loop to make grid
+ * @width: width input
+ * @height: height input
+ * Return: pointer to 2 dim. array
  */
-
-int *array_range(int min, int max)
+int **alloc_grid(int width, int height)
 {
-	int *ptr;
-	int i;
-	int n = (max - min + 1);
+	int **mee;
+	int x, y;
 
-	if (min > max) /* validate input */
+	if (width <= 0 || height <= 0)
 		return (NULL);
 
-	/* malloc and check for error */
-	ptr = malloc(sizeof(int) * n);
-	if (ptr == NULL)
+	mee = malloc(sizeof(int *) * height);
+
+	if (mee == NULL)
 		return (NULL);
 
-	/* set values */
-	for (i = 0; i < n; i++)
-		ptr[i] = min++;
+	for (x = 0; x < height; x++)
+	{
+		mee[x] = malloc(sizeof(int) * width);
 
-	return (ptr);
+		if (mee[x] == NULL)
+		{
+			for (; x >= 0; x--)
+				free(mee[x]);
+
+			free(mee);
+			return (NULL);
+		}
+	}
+
+	for (x = 0; x < height; x++)
+	{
+		for (y = 0; y < width; y++)
+			mee[x][y] = 0;
+	}
+
+	return (mee);
 }
