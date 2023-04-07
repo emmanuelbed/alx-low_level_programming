@@ -9,7 +9,7 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int ui = 0;
+	unsigned int unit = 0;
 	int length = 0, base_two = 1;
 
 	if (!b)
@@ -26,12 +26,11 @@ unsigned int binary_to_uint(const char *b)
 			return (0);
 
 		if (b[length] & 1)
-			ui += base_two;
+			unit += base_two;
 
 		base_two *= 2;
 		length--;
 	}
 
-	return (ui);
+	return (unit);
 }
-
