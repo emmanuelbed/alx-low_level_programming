@@ -14,9 +14,9 @@ unsigned int binary_to_uint(const char *binary)
 	unsigned int decimal_value = 0;
 	int i = 0;
 
-	while (binary[i] != '\0')
+	while (binary[i])
 	{
-		if (binary[i] < '0' || binary[i] > '1')
+		if (binary[i] != '0' && binary[i] != '1')
 			return (0);
 		decimal_value = (decimal_value * 2) + (binary[i] - '0');
 		i++;
