@@ -1,18 +1,21 @@
 #include "main.h"
 
 /**
- * get_bit - returns the value of a bit at an index in a decimal number
- * @num: number to search
- * @idx: index of the bit
+ * get_bit - returns the value of a bit at a given index in a decimal number
+ * @n: number to search
+ * @index: index of the bit
  *
- * Return: value of the bit at the specified index
+ * Return: value of the bit at the given index, or -1 if index is invalid
  */
-int get_bit(unsigned long int num, unsigned int idx)
+int get_bit(unsigned long int n, unsigned int index)
 {
-	if (idx > 63)
+	int result;
+
+	if (index > 63)
 		return (-1);
 
-	int bit_value = (num >> idx) & 1;
+	result = (n >> index) & 1;
 
-	return (bit_value);
+	return (result);
 }
+
